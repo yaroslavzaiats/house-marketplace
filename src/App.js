@@ -8,7 +8,7 @@ import Profile from './pages/Profile'
 import SingIn from './pages/SignIn'
 import SingUp from './pages/SignUp'
 import ForgotPassword from './pages/ForgotPassword'
-
+import PrivateRoute from './components/PrivateRoute'
 
 
 function App() {
@@ -18,7 +18,9 @@ function App() {
       <Routes>
         <Route path='/' element={<Explore/>}/>
         <Route path='/offers' element={<Offers/>}/>
-        <Route path='/profile' element={<Profile/>}/>
+        <Route path='/profile' element={<PrivateRoute/>}>
+          <Route path='/profile' element={<Profile/>}/>
+        </Route>
         <Route path='/sign-in' element={<SingIn/>}/>
         <Route path='/sign-up' element={<SingUp/>}/>
         <Route path='/forgot-password' element={<ForgotPassword/>}/>
